@@ -5,6 +5,9 @@
 
 trigger: none
 
+variables:
+  build_id: $(Build.BuildId)
+
 resources:
   pipelines:
   - pipeline: 'Deploy to Development'
@@ -19,7 +22,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
+- script: echo $(build_id)
   displayName: 'Run a one-line script'
 
 - script: |
