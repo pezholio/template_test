@@ -6,7 +6,7 @@
 trigger: none
 
 variables:
-  build_id: $(Build.BuildId)
+  build_id: $(Build.TriggeredBy.BuildNumber)
 
 resources:
   pipelines:
@@ -24,6 +24,9 @@ pool:
 steps:
 - script: echo $(build_id)
   displayName: 'Run a one-line script'
+
+- script: echo $(Build.TriggeredBy.BuildNumber)
+  displayName: Does this work?
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
